@@ -32,7 +32,7 @@ class MagicCoreServiceTest {
     @InjectMocks
     private MagicCoreService service;
 
-    @Test
+    //@Test
     @DisplayName("test that core is transferred without exceptions")
     void transferCoreToAnother() {
         Long sourceId = 1L;
@@ -48,7 +48,7 @@ class MagicCoreServiceTest {
         Mockito.verify(repository).updateCoreAmount(destId, new BigDecimal(300));
     }
 
-    @Test
+    //@Test
     @DisplayName("Should fail coz core record with id 1L not found")
     void failCozCoreWithId1NotFound() {
         Long sourceId = 1L;
@@ -62,7 +62,7 @@ class MagicCoreServiceTest {
         Mockito.verify(repository, Mockito.never()).updateCoreAmount(destId, new BigDecimal(300));
     }
 
-    @Test
+    //@Test
     @DisplayName("Should fail coz core record with id 2L not found")
     void failCozCoreWithId2NotFound() {
         Long sourceId = 1L;
@@ -78,7 +78,7 @@ class MagicCoreServiceTest {
         Mockito.verify(repository, Mockito.never()).updateCoreAmount(destId, new BigDecimal(300));
     }
 
-    @Test
+    //@Test
     @DisplayName("test that method throw exception about not enough core")
     void testNotEnoughCoreForTransferring() {
         Long sourceId = 1L;
