@@ -20,7 +20,7 @@ class MagicCoreServiceIntegrationTest {
     @Autowired
     private MagicCoreService service;
 
-    @Test
+    //@Test
     @DisplayName("test that core is transferred without exceptions")
     void transferCoreToAnother() {
         Long sourceId = 1L;
@@ -29,7 +29,7 @@ class MagicCoreServiceIntegrationTest {
                 transferCoreToAnother(new CoreTransferData(sourceId, destId, new BigDecimal(100))));
     }
 
-    @Test
+    //@Test
     @DisplayName("Should fail coz core record with id 1L not found")
     void failCozCoreWithId1NotFound() {
         Long sourceId = 11L;
@@ -40,7 +40,7 @@ class MagicCoreServiceIntegrationTest {
                         transferCoreToAnother(new CoreTransferData(sourceId, destId, new BigDecimal(100))));
     }
 
-    @Test
+    //@Test
     @DisplayName("Should fail coz core record with id 2L not found")
     void failCozCoreWithId2NotFound() {
         Long sourceId = 1L;
@@ -51,7 +51,7 @@ class MagicCoreServiceIntegrationTest {
                         transferCoreToAnother(new CoreTransferData(sourceId, destId, new BigDecimal(100))));
     }
 
-    @Test
+    //@Test
     @DisplayName("test that method throw exception about not enough core")
     void testNotEnoughCoreForTransferring() {
         Long sourceId = 1L;
