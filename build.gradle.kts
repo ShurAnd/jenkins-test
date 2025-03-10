@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	implementation("org.springframework.boot:spring-boot-starter-security:3.4.3")
 	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jdbc
 	implementation("org.springframework.data:spring-data-jdbc:3.4.3")
 	// https://mvnrepository.com/artifact/org.postgresql/postgresql
