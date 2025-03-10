@@ -13,8 +13,6 @@ pipeline {
                 echo "Building.."
                 sh '''
                 chmod +x gradlew
-                '''
-                sh '''
                 ./gradlew build
                 '''
             }
