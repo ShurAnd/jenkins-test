@@ -1,8 +1,11 @@
 pipeline {
+    environment {
+        registry = "shurand/jenkins-test"
+        registryCredential = 'dockerhub'
+        dockerImage = ''
+    }
     agent {
-        node {
             label 'docker-agent-alpine-jdk17'
-            }
       }
     triggers {
         pollSCM '*/2 * * * *'
