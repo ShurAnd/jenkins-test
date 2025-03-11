@@ -6,7 +6,7 @@
     - name: "run container"
       docker_container:
         name: "spring_app"
-        image: "shurand/jenkins-test:6"
+        image: "shurand/jenkins-test:8"
         state: started
 
 ...
