@@ -30,6 +30,11 @@ pipeline {
                 }
             }
         }
+        stage('Ansible start container') {
+                    steps{
+                        sh ''' ansible-playbook start-container.yml '''
+                    }
+                }
 //         stage('Deploy our image') {
 //             steps{
 //                 script {

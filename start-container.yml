@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+
+  tasks:
+
+    - name: "run container"
+      docker_container:
+        name: "spring_app"
+        image: "shurand/jenkins-test"
+        state: started
+
+...
