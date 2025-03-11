@@ -30,6 +30,11 @@ pipeline {
                 }
             }
         }
+        stage('Ansible start container') {
+            steps{
+                sh ''' ansible-playbook start-container.yml '''
+            }
+        }
         stage('push image to dockerhub') {
             steps{
                 script {
@@ -39,11 +44,6 @@ pipeline {
                 }
             }
         }
-        stage('Ansible start container') {
-                    steps{
-                        sh ''' ansible-playbook start-container.yml '''
-                    }
-                }
 //         stage('Cleaning up') {
 //             steps{
 //                 sh "docker rmi $registry:$BUILD_NUMBER"
