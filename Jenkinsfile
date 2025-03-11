@@ -5,7 +5,7 @@ pipeline {
         dockerImage = ''
     }
     agent {
-            label 'docker-agent-alpine-jdk17'
+            any
       }
     triggers {
         pollSCM '*/2 * * * *'
