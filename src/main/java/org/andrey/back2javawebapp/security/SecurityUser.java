@@ -1,5 +1,6 @@
 package org.andrey.back2javawebapp.security;
 
+import lombok.Getter;
 import org.andrey.back2javawebapp.users.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,6 +13,7 @@ import java.util.Collection;
  */
 public class SecurityUser implements UserDetails {
 
+    @Getter
     private final User user;
 
     public SecurityUser(User user) {
