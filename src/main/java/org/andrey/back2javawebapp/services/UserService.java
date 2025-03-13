@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.andrey.back2javawebapp.repositories.UserRepository;
 import org.andrey.back2javawebapp.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,12 +19,15 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final ObjectMapper objectMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserService(UserRepository userRepository,
-                       ObjectMapper objectMapper){
+                       ObjectMapper objectMapper,
+                       PasswordEncoder passwordEncoder){
         this.userRepository = userRepository;
         this.objectMapper = objectMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     /**
@@ -60,6 +64,7 @@ public class UserService {
     public User createUser(String userString) throws Exception{
         User user = objectMapper.readValue(userString, User.class);
         user.setAuthorities(getDefaultAuthorities());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user = userRepository.save(user);
         user.setPassword("");
 
