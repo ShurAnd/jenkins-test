@@ -36,20 +36,20 @@ pipeline {
                 sh ''' ansible-playbook start-container.yml '''
             }
         }
-        stage('push image to dockerhub') {
-            steps{
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                    }
-                }
-            }
-        }
-//         stage('Cleaning up') {
+//         stage('push image to dockerhub') {
 //             steps{
-//                 sh "docker rmi $registry:$BUILD_NUMBER"
+//                 script {
+//                     docker.withRegistry( '', registryCredential ) {
+//                     dockerImage.push()
+//                     }
+//                 }
 //             }
 //         }
+        stage('Cleaning up') {
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+            }
+        }
     }
     post {
             always {

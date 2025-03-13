@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
-    private Long id = 0L;
+    private Long id;
     private String username = "";
     private String password = "";
     private String firstName = "";
