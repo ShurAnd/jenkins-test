@@ -10,7 +10,7 @@
         exposed_ports:
           - 9090
         env:
-          POSTGRESQL_HOST: "127.0.0.1"
+          POSTGRESQL_HOST: "172.17.0.1"
           POSTGRESQL_PORT: "15432"
         state: started
 
