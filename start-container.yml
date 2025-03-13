@@ -9,6 +9,8 @@
         image: "shurand/jenkins-test:8"
         exposed_ports:
           - 9090
+        published_ports:
+          - 9090:9090
         env:
           POSTGRESQL_HOST: "172.17.0.1"
           POSTGRESQL_PORT: "15432"
