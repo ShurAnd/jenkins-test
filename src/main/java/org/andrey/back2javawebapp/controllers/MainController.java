@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -71,6 +72,7 @@ public class MainController {
                 .header("Content-Type", "application/json")
                 .body(objectMapper.writeValueAsString(magicCore));
     }
+
 
     @PutMapping("/core/magic")
     public ResponseEntity<String> updateOne(@RequestBody String mc) throws Exception{
